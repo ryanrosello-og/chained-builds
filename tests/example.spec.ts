@@ -1,17 +1,21 @@
 import { test, expect } from '@playwright/test';
 
-test('passing check 1', async () => {
-  expect(2 + 2).toBe(4);
+test('passing check 1', async ({ page }) => {
+  await page.goto('https://playwright.dev');
+  await expect(page.getByRole('link', { name: 'Get started' })).toBeVisible();
 });
 
-test('passing check 2', async () => {
-  expect('playwright').toContain('play');
+test('passing check 2', async ({ page }) => {
+  await page.goto('https://playwright.dev');
+  await expect(page.getByRole('link', { name: 'Docs' })).toBeVisible();
 });
 
-test('failing check 1', async () => {
-  expect(1 + 1).toBe(3);
+test('passing check 3', async ({ page }) => {
+  await page.goto('https://playwright.dev');
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
 });
 
-test('failing check 2', async () => {
-  expect('typescript').toBe('playwright');
+test('homepage has a deliberately missing heading @failing', async ({ page }) => {
+  await page.goto('https://playwright.dev');
+  await expect(page.getByRole('heading', { name: 'This heading does not exist' })).toBeVisible();
 });

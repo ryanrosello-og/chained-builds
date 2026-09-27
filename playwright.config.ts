@@ -2,10 +2,12 @@ import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
-  timeout: 30_000,
+  timeout: 10_000,
   use: {
     headless: true,
-    trace: 'on-first-retry'
+    trace: 'on',
+    video: 'on',
+    screenshot: 'on',
   },
   reporter: [['list']]
 });
