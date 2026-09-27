@@ -15,6 +15,11 @@ test('passing check 3', async ({ page }) => {
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
 });
 
+test('passing check 4', async ({ page }) => {
+  await page.goto('https://playwright.dev');
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+});
+
 test('homepage has a deliberately missing heading @failing', async ({ page }) => {
   await page.goto('https://playwright.dev');
   await expect(page.getByRole('heading', { name: 'This heading does not exist' })).toBeVisible();
