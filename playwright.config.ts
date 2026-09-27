@@ -9,5 +9,8 @@ export default defineConfig({
     video: 'on',
     screenshot: 'on',
   },
-  reporter: [['list']]
+  reporter: [
+    ['list'],
+    ['html', { outputFolder: 'playwright-report', open: 'never' }],
+  ],
 });

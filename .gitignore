@@ -55,4 +55,4 @@ Thumbs.db
 
 # Node diagnostic reports
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
-test-results/.last-run.json
+test-results/*
